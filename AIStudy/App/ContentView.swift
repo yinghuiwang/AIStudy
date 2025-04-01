@@ -14,6 +14,10 @@ struct ContentView: View {
                 NavigationLink(destination: ChatView()) {
                     Text("Chat")
                 }
+                
+                NavigationLink(destination: StructuredChatView()) {
+                    Text("StructuredChat")
+                }
             }
             .navigationTitle("AI Study")
         }
