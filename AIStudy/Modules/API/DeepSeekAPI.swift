@@ -12,6 +12,7 @@ struct DeepSeekRequest: Encodable {
     let model: String
     let messages: [[String: String]]
     let stream: Bool
+    var response_format: [String: String]?
 }
 
 struct DeepSeekAPI {
@@ -24,13 +25,17 @@ struct DeepSeekAPI {
         self.apiKey = apiKey ?? ""
     }
     
-    func streamChatResponse(messages: [[String: String]]) -> AsyncStream<String> {
+    func streamChatResponse(messages: [[String: String]], responseFormat: [String: String]? = nil) -> AsyncStream<String> {
         return AsyncStream { continuation in
-            let requestBody = DeepSeekRequest(
+            var requestBody = DeepSeekRequest(
                 model: "deepseek-chat",
                 messages: messages,
                 stream: true
             )
+            
+            if let responseFormat = responseFormat {
+                requestBody.response_format = responseFormat
+            }
             
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer \(apiKey)",
@@ -108,12 +113,16 @@ struct DeepSeekAPI {
         }
     }
     
-    func fetchChatResponse(messages: [[String: String]], completion: @escaping (Result<String, Error>) -> Void) {
-        let requestBody = DeepSeekRequest(
+    func fetchChatResponse(messages: [[String: String]], responseFormat: [String: String]? = nil, completion: @escaping (Result<String, Error>) -> Void) {
+        var requestBody = DeepSeekRequest(
             model: "deepseek-chat",
             messages: messages,
             stream: false
         )
+        
+        if let responseFormat = responseFormat {
+            requestBody.response_format = responseFormat
+        }
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(apiKey)",

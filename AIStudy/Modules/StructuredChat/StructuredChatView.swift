@@ -5,7 +5,7 @@ struct StructuredChatView: View {
     @State private var jsonResponse = ""
     @State private var isLoading = false
     @State private var error: String?
-    private let api = StructuredChatAPI()
+    private let api = DeepSeekAPI()
     
     @FocusState private var isFocused: Bool
     
@@ -80,7 +80,15 @@ struct StructuredChatView: View {
         jsonResponse = ""
         isFocused = false
         
-        api.fetchStructuredResponse(prompt: promptText) { result in
+        let messages = [
+            ["role": "system", "content": "你是一个JSON数据生成器。你只能返回符合指定结构的JSON数据，不要包含任何其他信息或解释。"],
+            ["role": "user", "content": prompt]
+        ]
+        
+        api.fetchChatResponse(
+            messages: messages,
+            responseFormat: ["type": "json_object"]
+        ) { result in
             isLoading = false
             switch result {
             case let .success(response):
