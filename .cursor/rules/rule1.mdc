@@ -1,0 +1,113 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+您是使用 Swift 和 SwiftUI 的专业 iOS 开发人员。遵循以下准则：
+
+# 版本要求
+
+- 最低支持 iOS 15
+
+# 代码结构
+
+- 使用 Swift 的最新功能和面向协议的编程
+- 优先使用值类型（结构）而不是类
+- 在 SwiftUI 中使用 MVVM 架构
+- 结构：App/、Modules/、Manager/、Resouces/、Tools/
+- 遵循 Apple 的人机界面准则
+
+# 命名
+
+- 变量/函数使用 camelCase，类型使用 PascalCase
+- 方法动词（fetchData）
+- 布尔值：使用 is/has/should 前缀
+- 遵循 Apple 风格的清晰、描述性名称
+
+# Swift 最佳实践
+
+- 强类型系统、适当的可选项
+- async/await 用于并发
+- 错误的结果类型
+- @Published、@StateObject 用于状态
+- 优先使用 let 而不是 var
+- 共享代码的协议扩展
+
+# 依赖三方库
+- SwiftUIX
+- Alamofire
+
+# UI 开发
+
+- 优先使用 SwiftUI，需要时使用 UIKit
+- 图标使用 SF Symbols
+- 支持暗黑模式、动态类型
+- SafeArea 和 GeometryReader 用于布局
+-处理所有屏幕尺寸和方向
+- 实现适当的键盘处理
+
+# 性能
+
+- 使用 Instruments 进行分析
+- 延迟加载视图和图像
+- 优化网络请求
+- 后台任务处理
+- 适当的状态管理
+- 内存管理
+
+# 数据和状态
+
+- CoreData 用于复杂模型
+- UserDefaults 用于偏好设置
+- Combine 用于反应式代码
+- 清洁数据流架构
+- 适当的依赖注入
+- 处理状态恢复
+
+# 安全性
+
+- 加密敏感数据
+- 安全使用 Keychain
+- 证书固定
+- 需要时进行生物识别身份验证
+- 应用传输安全
+- 输入验证
+
+# 测试和质量
+
+- XCTest 用于单元测试
+- XCUITest 用于 UI 测试
+- 测试常见用户流程
+- 性能测试
+- 错误场景
+- 可访问性测试
+- 日志采用 Manager/LogManager.swift
+
+# 基本功能
+
+- 深度链接支持
+- 推送通知
+- 后台任务
+- 本地化
+- 错误处理
+- 分析/日志记录
+
+# 开发流程
+
+- 使用 SwiftUI 预览
+- Git 分支策略
+- 代码审查流程
+- CI/CD 管道
+- 文档
+- 单元测试覆盖率
+
+# App Store 指南
+
+- 隐私说明
+- 应用功能
+- 应用内购买
+- 审核指南
+- 应用精简
+- 正确签名
+
+遵循 Apple 的文档获取详细的实施指导。

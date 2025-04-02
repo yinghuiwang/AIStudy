@@ -280,6 +280,8 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R5LY8Z692H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "需要访问您的位置以获取当前城市的天气信息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "需要访问您的位置以获取当前城市的天气信息";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -314,6 +316,8 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R5LY8Z692H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "需要访问您的位置以获取当前城市的天气信息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "需要访问您的位置以获取当前城市的天气信息";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
