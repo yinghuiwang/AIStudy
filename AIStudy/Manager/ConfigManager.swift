@@ -15,9 +15,9 @@ class ConfigManager {
     }
     
     private func loadConfig() {
-        let path = Bundle.main.path(forResource: "DefaultConfig_Mark", ofType: "plist")
+        var path = Bundle.main.path(forResource: "DefaultConfig_Mark", ofType: "plist")
         if path == nil {
-            Bundle.main.path(forResource: "DefaultConfig", ofType: "plist")
+            path = Bundle.main.path(forResource: "DefaultConfig", ofType: "plist")
         }
         guard let configPath = path else {
             debugPrint("Config file not found")

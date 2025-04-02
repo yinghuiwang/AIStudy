@@ -7,6 +7,8 @@ struct StructuredChatView: View {
     @State private var error: String?
     private let api = StructuredChatAPI()
     
+    @FocusState private var isFocused: Bool
+    
     var body: some View {
         VStack(spacing: 16) {
             // JSON 响应区域
@@ -44,6 +46,7 @@ struct StructuredChatView: View {
                 Text("输入提示词")
                     .font(.headline)
                 TextEditor(text: $prompt)
+                    .focused($isFocused)
                     .frame(height: 100)
                     .border(Color.gray.opacity(0.2), width: 1)
                     .cornerRadius(8)
@@ -75,6 +78,7 @@ struct StructuredChatView: View {
         isLoading = true
         error = nil
         jsonResponse = ""
+        isFocused = false
         
         api.fetchStructuredResponse(prompt: promptText) { result in
             isLoading = false
